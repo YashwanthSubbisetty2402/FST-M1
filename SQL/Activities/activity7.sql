@@ -1,4 +1,5 @@
-Activity7
+REM   Script: Activity_07
+REM   Testing
 
 create table orders(
     order_no int primary key, purchase_amount float, order_date date,
