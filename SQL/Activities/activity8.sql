@@ -1,10 +1,11 @@
-Activity8
+REM   Script: Activity_08
+REM   Testing
 
 create table orders(
     order_no int primary key, purchase_amount float, order_date date,
     customer_id int, salesman_id int);
 
--- Add values to the table
+
 INSERT ALL
     INTO orders VALUES(70001, 150.5, TO_DATE('2012/10/05', 'YYYY/MM/DD'), 3005, 5002) 
     INTO orders VALUES(70009, 270.65, TO_DATE('2012/09/10', 'YYYY/MM/DD'), 3001, 5005)
