@@ -1,9 +1,9 @@
-Activity1
-CREATE TABLE salesman (
-    salesman_id int,
-    salesman_name varchar2(32),
-    salesman_city varchar2(32),
-    commission int
-); 
+REM   Script: Activity_01
+REM   Testing
 
-select * from salesman;
+CREATE TABLE salesman ( 
+    salesman_id int, 
+    salesman_name varchar2(32), 
+    salesman_city varchar2(32), 
+    commission int 
+);
