@@ -1,9 +1,10 @@
-Activity4
--- Add the grade column
+REM   Script: Activity_04
+REM   Testing
+
 ALTER TABLE salesman ADD grade int;
 
--- Update the values in the grade column
 UPDATE salesman SET grade=100;
 
--- Display data
+SELECT * FROM salesman;
+
 SELECT * FROM salesman;
