@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<testsuite name="Cucumber.runtime.formatter.JUnitFormatter" time="27.928934" tests="1" skipped="0" failures="0" errors="0">
+    <testcase classname="Testing with Tags" name="Test for simple alert" time="27.928934">
+        <system-out><![CDATA[Given User is on Login Page.................................................passed
+When User clicks on the Simple Alert Button..................................passed
+Then Alert opens.............................................................passed
+And read the text from it and Print it.......................................passed
+And close the Alert..........................................................passed
+And Read the result text.....................................................passed
+Then close the browser.......................................................passed
+]]></system-out>
+    </testcase>
+</testsuite>
