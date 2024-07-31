@@ -1,70 +1,58 @@
 package activities;
 
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-
+import java.net.MalformedURLException;
+import java.net.URL;
+ 
 public class Activity1 {
-	
-	AppiumDriver driver;
-
-	@BeforeClass
-	public void setup() throws MalformedURLException, URISyntaxException {
-
-		// Desired Capabilities
-		UiAutomator2Options caps = new UiAutomator2Options().setPlatformName("andriod")
-				.setAutomationName("UiAutomator2").
-				setAppPackage("com.coloros.calculator").
-				setAppActivity("com.android.calculator2.Calculator").
-				noReset();
-		
-		
-		//Set the Appium server URL
-		URL serverURL = new URI("http://localhost:4723").toURL();
-		
-		//Initializing driver
-		driver = new AndroidDriver(serverURL,caps);
-		
-	}
-	
-	@Test
-	public void multiplicationTest() {
-		
-		//Find digit 6 and tap it
-		driver.findElement(AppiumBy.id("com.coloros.calculator:id/digit_6")).click();
-		
-		//Find the plus button and tap it
-		driver.findElement(AppiumBy.accessibilityId("Multiply")).click();
-		
-		
-		//Find digit 9 and tap it
-		driver.findElement(AppiumBy.id("com.coloros.calculator:id/digit_9")).click();
-		
-		
-		//Find equals and tap it
-		driver.findElement(AppiumBy.accessibilityId("Equals")).click();
-		
-		//Get the result and Assert
-		String result = driver.findElement(AppiumBy.id("result")).getText();
-		System.out.println("Result is: "+result);
-		Assert.assertEquals(result, "54");
-	}
-	
-	@AfterClass
-	public void teardown() {
-		driver.quit();
-	}
-
-
+    // Driver Declaration
+    AndroidDriver driver;
+ 
+    // Set up method
+    @BeforeClass
+    public void setUp() throws MalformedURLException, URISyntaxException 
+        // Desired Capabilities
+        UiAutomator2Options options = new UiAutomator2Options();
+        options.setPlatformName("android");
+        options.setAutomationName("UiAutomator2");
+        options.setAppPackage("com.android.calculator2");
+        options.setAppActivity(".Calculator");
+        options.noReset();
+ 
+        // Server Address
+        URL serverURL = new URI("http://localhost:4723").toURL();
+ 
+        // Driver Initialization
+        driver = new AndroidDriver(serverURL, options);
+    }
+ 
+    // Test method
+    @Test
+    public void multiplyTest() {
+        // Perform the calculation
+        driver.findElement(AppiumBy.id("digit_5")).click();
+        driver.findElement(AppiumBy.accessibilityId("multiply")).click();
+        driver.findElement(AppiumBy.id("digit_8")).click();
+        driver.findElement(AppiumBy.accessibilityId("equals")).click();
+ 
+        // Find the result
+        String result = driver.findElement(AppiumBy.id("result")).getText();
+ 
+        // Assertion
+        Assert.assertEquals(result, "40");
+    }
+ 
+ 
+    // Tear down method
+    @AfterClass
+    public void tearDown() {
+        // Close the app
+        driver.quit();
+    }
 }
