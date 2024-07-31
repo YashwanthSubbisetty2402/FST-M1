@@ -1,4 +1,4 @@
-package liveProject;
+package LiveProject;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
